@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:multi_vendor_ecommerce_app/core/controllers/language_controller.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,68 +11,76 @@ class AppDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Theme.of(context).primaryColor,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
-                  backgroundImage: NetworkImage('https://picsum.photos/100'),
+                  backgroundImage: NetworkImage('https://picsum.photos/200'),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   'John Doe',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  'john.doe@example.com',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Colors.white,
+                      ),
                 ),
               ],
             ),
           ),
           ListTile(
             leading: const Icon(Icons.home),
-            title: const Text('Home'),
-            onTap: () {},
+            title: Text('drawer_home'.tr),
+            onTap: () => Navigator.pop(context),
           ),
           ListTile(
             leading: const Icon(Icons.category),
-            title: const Text('Categories'),
+            title: Text('drawer_categories'.tr),
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Wishlist'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.shopping_bag),
-            title: const Text('My Orders'),
-            onTap: () {},
-          ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
-            onTap: () {},
+            leading: const Icon(Icons.language),
+            title: Text('drawer_language'.tr),
+            onTap: () => _showLanguageDialog(context),
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
-            title: const Text('Logout'),
+            title: Text('drawer_logout'.tr),
             onTap: () {},
           ),
         ],
       ),
+    );
+  }
+
+  void _showLanguageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('drawer_language'.tr),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _buildLanguageOption('English', 'en', 'US'),
+            _buildLanguageOption('አማርኛ', 'am', 'ET'),
+            _buildLanguageOption('Afaan Oromoo', 'om', 'ET'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLanguageOption(String title, String languageCode, String countryCode) {
+    return ListTile(
+      title: Text(title),
+      onTap: () {
+        LanguageController.to.changeLocale(languageCode, countryCode);
+        Get.back();
+      },
     );
   }
 }
