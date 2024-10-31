@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_vendor_ecommerce_app/core/constants/app_colors.dart';
+import 'package:multi_vendor_ecommerce_app/core/widgets/theme_toggle.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -127,6 +128,7 @@ class ProfileScreen extends StatelessWidget {
             onTap: () {},
             isDestructive: true,
           ),
+          const ThemeToggle(),
         ],
       ),
     );

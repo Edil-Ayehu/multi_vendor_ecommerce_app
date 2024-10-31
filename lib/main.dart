@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:multi_vendor_ecommerce_app/core/constants/app_colors.dart';
+import 'package:get/get.dart';
+import 'package:multi_vendor_ecommerce_app/core/constants/app_theme.dart';
+import 'package:multi_vendor_ecommerce_app/core/controllers/theme_controller.dart';
 import 'package:multi_vendor_ecommerce_app/features/splash/screens/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize theme controller
+  await Get.putAsync(() async => ThemeController());
+  
   runApp(const MyApp());
 }
 
@@ -11,28 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'E-Commerce App',
-      theme: ThemeData(
-        primaryColor: AppColors.primary,
-        scaffoldBackgroundColor: AppColors.background,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          primary: AppColors.primary,
-          secondary: AppColors.secondary,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          iconTheme: IconThemeData(color: AppColors.textDark),
-          titleTextStyle: TextStyle(
-            color: AppColors.textDark,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeController.to.themeMode,
       home: const SplashScreen(),
     );
   }
