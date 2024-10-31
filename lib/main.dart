@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:multi_vendor_ecommerce_app/core/constants/app_theme.dart';
-import 'package:multi_vendor_ecommerce_app/core/controllers/theme_controller.dart';
-import 'package:multi_vendor_ecommerce_app/core/controllers/language_controller.dart';
-import 'package:multi_vendor_ecommerce_app/core/services/translation_service.dart';
-import 'package:multi_vendor_ecommerce_app/features/splash/screens/splash_screen.dart';
+import 'export.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:multi_vendor_ecommerce_app/core/widgets/app_bottom_nav_bar.dart';
-import 'package:multi_vendor_ecommerce_app/features/home/screens/home_screen.dart';
-import 'package:multi_vendor_ecommerce_app/features/categories/screens/categories_screen.dart';
-import 'package:multi_vendor_ecommerce_app/features/cart/screens/cart_screen.dart';
-import 'package:multi_vendor_ecommerce_app/features/profile/screens/profile_screen.dart';
+import 'package:multi_vendor_ecommerce_app/export.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

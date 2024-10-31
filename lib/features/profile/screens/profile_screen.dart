@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:multi_vendor_ecommerce_app/core/constants/app_colors.dart';
-import 'package:multi_vendor_ecommerce_app/core/widgets/theme_toggle.dart';
+import 'package:multi_vendor_ecommerce_app/export.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

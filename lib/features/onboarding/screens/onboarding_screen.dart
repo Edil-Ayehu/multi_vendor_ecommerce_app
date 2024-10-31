@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:multi_vendor_ecommerce_app/core/constants/app_colors.dart';
-import 'package:multi_vendor_ecommerce_app/features/main/screens/main_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:multi_vendor_ecommerce_app/export.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

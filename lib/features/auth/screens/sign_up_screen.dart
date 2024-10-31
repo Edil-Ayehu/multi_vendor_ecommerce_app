@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:multi_vendor_ecommerce_app/core/constants/app_colors.dart';
-import 'package:multi_vendor_ecommerce_app/features/auth/widgets/custom_text_field.dart';
-import 'package:multi_vendor_ecommerce_app/features/auth/widgets/social_button.dart';
+import 'package:multi_vendor_ecommerce_app/export.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

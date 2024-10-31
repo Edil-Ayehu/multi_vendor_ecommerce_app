@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:multi_vendor_ecommerce_app/core/widgets/app_bottom_nav_bar.dart';
-import 'package:multi_vendor_ecommerce_app/core/widgets/app_drawer.dart';
+import 'package:multi_vendor_ecommerce_app/export.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
